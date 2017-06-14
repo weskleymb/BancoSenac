@@ -1,27 +1,33 @@
 package view;
 
 import dao.ClienteDAO;
+import dao.ContaDAO;
 import model.Cliente;
+import model.ContaCorrente;
+import model.ContaPoupanca;
 
 public class Teste {
 
     public static void main(String[] args) {
         
-        ClienteDAO dao = new ClienteDAO();
+        ContaDAO dao = new ContaDAO();
         
-        Cliente a = new Cliente("111.111.111-11", "JOSE DOS ANZOIS");
-        Cliente b = new Cliente("222.222.222-22", "CHICO CAICO");
-        Cliente c = new Cliente("333.333.333-33", "PEDO GOMES");
+        ContaCorrente cc = new ContaCorrente();
+        cc.setAgencia(1);
+        cc.setConta(1);
+        cc.setSaldo(500);
         
-        dao.inserir(a);
-        dao.inserir(b);
-        dao.inserir(c);
+        ContaPoupanca cp = new ContaPoupanca();
+        cp.setAgencia(1);
+        cp.setConta(2);
+        cp.setSaldo(200);
         
-        dao.editar(new Cliente("333.333.333-33", "MAURICIO SANTANA"));
+        dao.inserir(cc);
+        dao.inserir(cp);
         
-        dao.remover("222.222.222-22");
+        dao.buscarPorAgenciaConta(1, 1).sacar(100);
         
-        System.out.println(dao.buscarTodos().toString());
+        System.out.println(dao.buscarPorAgenciaConta(1, 1).toString());
         
     }
     

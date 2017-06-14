@@ -29,7 +29,7 @@ public class ClienteDAO {
         return "CLIENTE NÃO REMOVIDO!";
     }
     
-    public String  editar(Cliente cliente) {
+    public String editar(Cliente cliente) {
         if (this.clientes.contains(cliente)) {
             int indice = this.clientes.indexOf(cliente);
             this.clientes.set(indice, cliente);
@@ -50,7 +50,5 @@ public class ClienteDAO {
         }
         return null;
     }
-    
-    public void teste() {}
     
 }
