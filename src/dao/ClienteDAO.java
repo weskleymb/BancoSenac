@@ -51,4 +51,6 @@ public class ClienteDAO {
         return null;
     }
     
+    public void teste() {}
+    
 }
